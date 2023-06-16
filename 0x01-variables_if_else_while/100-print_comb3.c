@@ -23,9 +23,10 @@ int main(void)
 			}
 			else
 			{
-				putchar(num1 + '0');
-				putchar(num2 + '0');
+				combo1 = 0;
 			}
+			putchar(num1 + '0');
+			putchar(num2 + '0');
 		}
 	}
 	putchar('\n');
