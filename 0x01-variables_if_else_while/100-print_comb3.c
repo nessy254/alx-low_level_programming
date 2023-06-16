@@ -6,6 +6,7 @@
 int main(void)
 {
 	int num1, num2;
+	int combo1 = 1;
 
 	for (num1 = 0; num1 <= 9; num1++)
 	{
@@ -15,10 +16,16 @@ int main(void)
 			{
 				continue;
 			}
-			putchar(num1 + '0');
-			putchar(num2 + '0');
-			putchar(',');
-			putchar(' ');
+			if (!combo1)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+			else
+			{
+				putchar(num1 + '0');
+				putchar(num2 + '0');
+			}
 		}
 	}
 	putchar('\n');
