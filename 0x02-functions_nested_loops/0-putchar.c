@@ -1,25 +1,23 @@
+#include <unistd.h>
 #include <stdio.h>
-
 #include "main.h"
 
 /**
- * main - start of the program
- * Return: 0 if executed successfully
+ * main- prints _putchar followed by newline.
+ * Return: 0 i.e null after successful completion.
  */
-
 int main(void)
 {
-	char s[9] = "_putchar";
+	int i;
+	char a[] = "_putchar";
 
-int i = 0;
+	i = 0;
 
 	while (i < 8)
-{
-		_putchar(s[i]);
+	{
+		_putchar(a[i]);
 		i++;
-}
+	}
 	_putchar('\n');
-
 	return (0);
 }
-
