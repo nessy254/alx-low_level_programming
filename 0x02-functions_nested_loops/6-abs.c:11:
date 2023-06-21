@@ -1,0 +1,2 @@
+bs.c:12: warning: Excess function parameter 'n' description in '_abs'
+_abs
