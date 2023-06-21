@@ -1,7 +1,7 @@
 #include "main.h"
 /**
- * main - start of the program
- * Return: 0 if executed successfully
+ * print_alphabet - start of the program
+ * Return: void if executed successfully
  */
 void print_alphabet(void)
 {
@@ -12,9 +12,4 @@ void print_alphabet(void)
 		_putchar(alphabets);
 	}
 	_putchar('\n');
-}
-int main(void)
-{
-    print_alphabet();
-    return (0);
 }
