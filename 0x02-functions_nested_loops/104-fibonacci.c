@@ -21,4 +21,5 @@ int main(void)
 			printf("%ld\n", a1);
 		}
 	}
+	return (0);
 }
