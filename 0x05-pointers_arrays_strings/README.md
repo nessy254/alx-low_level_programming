@@ -1,5 +1,5 @@
-*Pointers, Arrays and strings
-We should know:
+##Pointers, Arrays and strings
+###We should know:
 1.What are pointers and how to use them
 2.What are arrays and how to use them
 3.What are the differences between pointers and arrays
