@@ -15,7 +15,7 @@ char *leet(char *str)
 	{
 		for (b = 0; b < 10; b++)
 		{
-			if (encode[b] ==str[a])
+			if (encode[b] == str[a])
 				str[a] = decode[b];
 		}
 	}
