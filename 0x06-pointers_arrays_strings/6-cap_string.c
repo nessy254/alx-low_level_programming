@@ -21,7 +21,7 @@ char *cap_string(char *s)
 		{
 			b = 1;
 		}
-		else if (b) 
+		else if (b)
 		{
 			if (s[a] >= 'a' && s[a] <= 'z')
 			{
