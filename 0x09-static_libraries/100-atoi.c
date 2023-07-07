@@ -24,5 +24,5 @@ for (i = 0; s[i] != '0'; i++)
 			break;
 	}
 }
-	return(m * n);
+	return (m * n);
 }
