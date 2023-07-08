@@ -6,14 +6,13 @@
  * @argv: arguments array
  * Return: 0, if executed successfully
  */
-int main(int argc, char *argv[])
+int main(int argc __attribute__((unused)), char *argv[])
 {
 	int i;
-	(void)argc;
 
 	for (i = 0; i < argc; i++)
 	{
-		printf("%s \n", argv[i]);
+		printf("%s\n", argv[i]);
 	}
 	return (0);
 }
