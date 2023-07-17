@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "dog.h"
 /**
- * init_dog - initializes a struct dog
+ * print_dog - initializes a struct dog
  * @d: pointer to the struct dog
  * Return: void
  */
