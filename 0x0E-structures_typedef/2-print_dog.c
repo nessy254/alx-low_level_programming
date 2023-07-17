@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include "dog.h"
+/**
+ * init_dog - initializes a struct dog
+ * @d: pointer to the struct dog
+ * Return: void
+ */
 
 void print_dog(struct dog *d)
 {
