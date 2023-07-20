@@ -24,7 +24,8 @@ void print_opcodes(int num_bytes)
  * main - main function
  * @argc: number of arguments
  * @argv: array of arguments
- * Return: 0 if success, 1 if no of args is incorrect, 2 if bytes no is negative
+ * Return: 0 if success, 1 if no of args is incorrect, 2
+ * f bytes no is negative
  */
 int main(int argc, char *argv[])
 {
