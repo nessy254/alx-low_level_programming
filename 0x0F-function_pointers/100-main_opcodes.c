@@ -3,7 +3,6 @@
 /**
  * print_opcodes - prints the opcodes
  * @num_bytes: number of bytes
- * Return: void
  */
 
 void print_opcodes(int num_bytes)
@@ -11,21 +10,21 @@ void print_opcodes(int num_bytes)
 	unsigned char *ptr = (unsigned char *)print_opcodes;
 	int i;
 
-	for (i = 0; i < num_bytes; i++)
+	if (num_bytes > 0)
 	{
-		if (ptr[i] == 0)
-			break;
-
-		printf("%02x ", ptr[i]);
+		for (i = 0; i < num_bytes - 1; i++)
+		{
+			printf("%02x ", ptr[i]);
+		}
+	printf("%02x\n", ptr[i]);
 	}
-	printf("\n");
 }
 
 /**
  * main - main function
  * @argc: number of arguments
  * @argv: array of arguments
- * Return: 0
+ * Return: 0 if success, 1 if no of args is incorrect, 2 if bytes no is negative
  */
 int main(int argc, char *argv[])
 {
