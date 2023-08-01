@@ -2,39 +2,33 @@
 #include <stdlib.h>
 #include "lists.h"
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * delete_nodeint_at_index - deletes the node at index
+ * @head: head of the list
+ * @index: index of the node
+ * Return: 1 on success, -1 if it fails
  */
-int main(void)
+int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *head;
-	listint_t *new;
-	listint_t *next;
-	int i;
+	listint_t *temp = *head;
+	unsigned int i;
 
-	head = NULL;
-	for (i = 0; i < 10; i++)
+	if (head == NULL)
+		return (-1);
+	if (index == 0)
 	{
-		next = malloc(sizeof(listint_t));
-		if (next == NULL)
-		{
-			free(head);
-			return (1);
-		}
-		next->n = i;
-		next->next = NULL;
-		if (head == NULL)
-			head = next;
-		else
-		{
-			new = head;
-			while (new->next != NULL)
-				new = new->next;
-			new->next = next;
-		}
+		*head = (*head)->next;
+		free(temp);
+		return (1);
 	}
-	print_listint(head);
-	free_listint(head);
-	return (0);
+	for (i = 0; i < index - 1; i++)
+	{
+		if (temp == NULL)
+			return (-1);
+		temp = temp->next;
+	}
+	if (temp == NULL)
+		return (-1);
+	temp->next = temp->next->next;
+	free(temp);
+	return (1);
 }
