@@ -3,32 +3,38 @@
 #include "lists.h"
 /**
  * delete_nodeint_at_index - deletes the node at index
- * @head: head of the list
+ * @head: pointer to the head of the linked list
  * @index: index of the node
  * Return: 1 on success, -1 if it fails
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *temp = *head;
+	listint_t *temp;
 	unsigned int i;
 
-	if (head == NULL)
+	if (head == NULL || *head == NULL)
 		return (-1);
 	if (index == 0)
 	{
-		*head = (*head)->next;
-		free(temp);
+		free(*head);
+		*head = NULL;
 		return (1);
 	}
+	temp = *head;
 	for (i = 0; i < index - 1; i++)
 	{
+		temp = temp->next;
 		if (temp == NULL)
 			return (-1);
-		temp = temp->next;
 	}
-	if (temp == NULL)
-		return (-1);
+	if (temp->next == NULL)
+	{
+		free(temp->next);
+		temp->next = NULL;
+		return (1);
+	}
 	temp->next = temp->next->next;
-	free(temp);
+	free(temp->next);
+	temp->next = NULL;
 	return (1);
 }
