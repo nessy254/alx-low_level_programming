@@ -6,10 +6,31 @@
  */
 void print_binary(unsigned long int n)
 {
+	int m;
+	unsigned long int num;
+
 	if (n == 0)
 	{
 		_putchar('0');
+		return;
 	}
-	print_binary(n >> 1);
-	_putchar((n & 1) + '0');
+	num = n;
+	m = 0;
+	while (num > 0)
+	{
+		m++;
+		num = num >> 1;
+	}
+	for (m--; m >= 0; m--)
+	{
+		if (n >> m & 1)
+		{
+			_putchar('1');
+		}
+		else
+		{
+			_putchar('0');
+		}
+	}
+	_putchar('\n');
 }
