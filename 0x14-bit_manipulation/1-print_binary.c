@@ -6,31 +6,28 @@
  */
 void print_binary(unsigned long int n)
 {
-	int m;
-	unsigned long int num;
+	unsigned long int m = 1UL << ((sizeof(unsigned long int) * 8) - 1);
+	int l = 0;
 
-	if (n == 0)
+	while (m > 0)
 	{
-		_putchar('0');
-		return;
-	}
-	num = n;
-	m = 0;
-	while (num > 0)
-	{
-		m++;
-		num = num >> 1;
-	}
-	for (m--; m >= 0; m--)
-	{
-		if (n >> m & 1)
+		if (n & m)
 		{
-			_putchar('1');
+			l = 1;
 		}
-		else
+		if (l)
 		{
+			if (n & m)
+			{
+
+				_putchar('1');
+			}
 			_putchar('0');
 		}
+		m >>= 1;
 	}
-	_putchar('\n');
+	if (!l)
+	{
+		_putchar('0');
+	}
 }
