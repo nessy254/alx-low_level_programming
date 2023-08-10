@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <fcntl.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include "main.h"
 /**
  * main - copies a file's content to another
@@ -14,8 +14,7 @@ int main(int argc, char **argv)
 	int file_from, file_to, bytes_read, bytes_written;
 	char buffer[1024];
 
-
-	if (argc != 2)
+	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
@@ -40,8 +39,6 @@ int main(int argc, char **argv)
 		if (bytes_written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			close(file_from);
-			close(file_to);
 			exit(99);
 		}
 	}
@@ -49,11 +46,20 @@ int main(int argc, char **argv)
 	if (bytes_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		close(file_from);
-		close(file_to);
 		exit(98);
 	}
-
+	close(file_from);
+	close(file_to);
+	return (0);
+}
+/**
+ * cleanup - cleans up the files
+ * @file_from: file from
+ * @file_to: file to
+ * Return: 0 if executed successfully
+ */
+void cleanup(int file_from, int file_to)
+{
 	if (close(file_from) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
@@ -64,8 +70,4 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
 	}
-	close(file_from);
-	close(file_to);
-
-	return (0);
 }
