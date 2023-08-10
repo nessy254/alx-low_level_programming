@@ -4,6 +4,26 @@
 #include <fcntl.h>
 #include "main.h"
 /**
+ * cleanup - cleans up the files
+ * @file_from: file from
+ * @file_to: file to
+ * Return: 0 if executed successfully
+ */
+void cleanup(int file_from, int file_to)
+{
+	if (close(file_from) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		exit(100);
+	}
+	if (close(file_to) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
+		exit(100);
+	}
+}
+
+/**
  * main - copies a file's content to another
  * @argc: number of arguments
  * @argv: array of arguments
@@ -51,23 +71,4 @@ int main(int argc, char **argv)
 	close(file_from);
 	close(file_to);
 	return (0);
-}
-/**
- * cleanup - cleans up the files
- * @file_from: file from
- * @file_to: file to
- * Return: 0 if executed successfully
- */
-void cleanup(int file_from, int file_to)
-{
-	if (close(file_from) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
-		exit(100);
-	}
-	if (close(file_to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
-		exit(100);
-	}
 }
