@@ -23,12 +23,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 		return (0);
 
-	buffer = malloc(sizeof(char) * (letters + 1));
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
+		return (0);
+
 	readF = read(fd, buffer, letters);
-	buffer[readF] = '\0';
+	/*buffer[readF] = '\0';*/
 	if (readF == -1)
 	{
-		close(fd);
 		return (0);
 	}
 
